@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Test Alpha
+Bundle-SymbolicName: com.jeffreyricker.example.alpha
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: Jeffrey Ricker
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: com.jeffreyricker.example.alpha

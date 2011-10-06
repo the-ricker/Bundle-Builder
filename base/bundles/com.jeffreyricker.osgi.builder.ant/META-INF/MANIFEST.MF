@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Bundle Builder Ant Task
+Bundle-SymbolicName: com.jeffreyricker.osgi.builder.ant
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: Jeffrey Ricker
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: org.apache.tools.ant
+Require-Bundle: com.jeffreyricker.osgi.builder;bundle-version="1.0.0"

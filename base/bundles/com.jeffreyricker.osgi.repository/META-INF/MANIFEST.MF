@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: OSGi Repository
+Bundle-SymbolicName: com.jeffreyricker.osgi.repository
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: Jeffrey Ricker
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: com.jeffreyricker.osgi.manifest,
+ com.jeffreyricker.osgi.repository
+Import-Package: org.osgi.framework,
+ org.osgi.service.obr

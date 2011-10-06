@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/global/!svn/ver/33789/equity_tools/trunk/eclipse_tools/com.nomura.osgi/plugins/org.apache.felix.utils/src/org/apache/felix/utils/manifest
+END
+Clause.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/global/!svn/ver/33789/equity_tools/trunk/eclipse_tools/com.nomura.osgi/plugins/org.apache.felix.utils/src/org/apache/felix/utils/manifest/Clause.java
+END
+Directive.java
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/global/!svn/ver/33789/equity_tools/trunk/eclipse_tools/com.nomura.osgi/plugins/org.apache.felix.utils/src/org/apache/felix/utils/manifest/Directive.java
+END
+Parser.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/global/!svn/ver/33789/equity_tools/trunk/eclipse_tools/com.nomura.osgi/plugins/org.apache.felix.utils/src/org/apache/felix/utils/manifest/Parser.java
+END
+Attribute.java
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/global/!svn/ver/33789/equity_tools/trunk/eclipse_tools/com.nomura.osgi/plugins/org.apache.felix.utils/src/org/apache/felix/utils/manifest/Attribute.java
+END
