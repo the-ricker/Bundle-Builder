@@ -16,7 +16,7 @@ import com.jeffreyricker.osgi.builder.compiler.CompilerJob;
  * @author Ricker
  * @date May 2, 2011
  */
-public class TestCompileJob {
+public class TestCompileStep {
 	
 	
 	@Test
@@ -25,7 +25,7 @@ public class TestCompileJob {
 		CompilerJob compiler = EasyMock.createMock(CompilerJob.class);
 		EasyMock.expect(compiler.call()).andReturn(null);
 		EasyMock.replay(compiler);
-		CompileJob job = new CompileJob(resource, compiler);
+		CompileStep job = new CompileStep(resource, compiler);
 		BuildResource result = job.call();
 		assertNotNull(result);
 		assertTrue(resource == result);
@@ -38,7 +38,7 @@ public class TestCompileJob {
 		CompilerJob compiler = EasyMock.createMock(CompilerJob.class);
 		EasyMock.expect(compiler.call()).andThrow(new Exception());
 		EasyMock.replay(compiler);
-		CompileJob job = new CompileJob(resource, compiler);
+		CompileStep job = new CompileStep(resource, compiler);
 		BuildResource result = job.call();
 		assertNotNull(result);
 		assertTrue(resource == result);

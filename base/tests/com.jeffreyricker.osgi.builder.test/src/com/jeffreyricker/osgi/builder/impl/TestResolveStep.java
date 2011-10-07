@@ -21,7 +21,7 @@ import com.jeffreyricker.osgi.resolver.impl.SolutionImpl;
  * @author Ricker
  * @date May 2, 2011
  */
-public class TestResolveJob {
+public class TestResolveStep {
 
 	BuildResource resource;
 	BuildResource d1;
@@ -44,7 +44,7 @@ public class TestResolveJob {
 		ResolverJob resolver = EasyMock.createMock(ResolverJob.class);
 		EasyMock.expect(resolver.call()).andReturn(solution);
 		EasyMock.replay(resolver);
-		ResolveJob job = new ResolveJob(resource, resolver);
+		ResolveStep job = new ResolveStep(resource, resolver);
 		BuildResource result = job.call();
 		assertNotNull(result);
 		assertTrue(resource == result);
@@ -60,7 +60,7 @@ public class TestResolveJob {
 		ResolverJob resolver = EasyMock.createMock(ResolverJob.class);
 		EasyMock.expect(resolver.call()).andReturn(null);
 		EasyMock.replay(resolver);
-		ResolveJob job = new ResolveJob(resource, resolver);
+		ResolveStep job = new ResolveStep(resource, resolver);
 		BuildResource result = job.call();
 		assertNotNull(result);
 		assertTrue(resource == result);
@@ -73,7 +73,7 @@ public class TestResolveJob {
 		ResolverJob resolver = EasyMock.createMock(ResolverJob.class);
 		EasyMock.expect(resolver.call()).andReturn(solution);
 		EasyMock.replay(resolver);
-		ResolveJob job = new ResolveJob(resource, resolver);
+		ResolveStep job = new ResolveStep(resource, resolver);
 		BuildResource result = job.call();
 		assertNotNull(result);
 		assertTrue(resource == result);

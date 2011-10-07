@@ -8,12 +8,18 @@ import javax.tools.JavaFileObject;
 import com.jeffreyricker.osgi.builder.BuildResource;
 import com.jeffreyricker.osgi.builder.compiler.CompilerJob;
 
-public class CompileJob implements BuildJob {
+/**
+ * Wraps the {@link CompilerJob} to do the work and set the state.
+ * 
+ * @author ricker
+ *
+ */
+public class CompileStep implements BuildStep {
 
 	private BuildResource resource;
 	private CompilerJob compiler;
 
-	public CompileJob(BuildResource resource, CompilerJob compiler) {
+	public CompileStep(BuildResource resource, CompilerJob compiler) {
 		this.resource = resource;
 		this.compiler = compiler;
 	}

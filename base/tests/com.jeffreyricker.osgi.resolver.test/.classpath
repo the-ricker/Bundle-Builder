@@ -6,10 +6,10 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/org.sat4j.core"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/org.sat4j.pb"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/com.jeffreyricker.osgi.resolver"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/EasyMock"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/org.osgi.service.obr"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/org.eclipse.osgi"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/com.jeffreyricker.osgi.builder"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/com.jeffreyricker.osgi.repository"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/org.easymock"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

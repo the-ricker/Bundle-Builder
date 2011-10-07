@@ -6,6 +6,13 @@ import java.util.concurrent.Callable;
 import javax.tools.Diagnostic;
 import javax.tools.JavaFileObject;
 
-public interface CompilerJob extends Callable<List<Diagnostic<? extends JavaFileObject>>>{
+/**
+ * The callable job that performs the work of compiling the classes.
+ * 
+ * @author ricker
+ *
+ */
+public interface CompilerJob extends
+		Callable<List<Diagnostic<? extends JavaFileObject>>> {
 
 }

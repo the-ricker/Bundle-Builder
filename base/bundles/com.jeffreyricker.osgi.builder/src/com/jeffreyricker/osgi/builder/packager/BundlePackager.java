@@ -5,7 +5,7 @@ import java.io.File;
 import com.jeffreyricker.osgi.builder.source.BundleSource;
 
 /**
- * Creates the jar file of a bundle.
+ * Service for creating the jar file of a bundle.
  * 
  * @author Ricker
  * @date Apr 27, 2011

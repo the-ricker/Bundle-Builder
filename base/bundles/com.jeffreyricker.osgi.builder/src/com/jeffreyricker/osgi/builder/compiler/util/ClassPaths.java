@@ -25,7 +25,8 @@ public class ClassPaths {
 
 		@Override
 		public boolean accept(File file) {
-			return file.isFile() && file.exists() && file.getName().endsWith(".java");
+			return file.isFile() && file.exists()
+					&& file.getName().endsWith(".java");
 		}
 
 	};
@@ -47,7 +48,8 @@ public class ClassPaths {
 	 *            include the system class path
 	 * @return
 	 */
-	public static String createClassPath(Set<Resource> dependencies, boolean includeSystem) {
+	public static String createClassPath(Set<Resource> dependencies,
+			boolean includeSystem) {
 		StringBuilder buf = new StringBuilder();
 		boolean first = true;
 		if (includeSystem) {

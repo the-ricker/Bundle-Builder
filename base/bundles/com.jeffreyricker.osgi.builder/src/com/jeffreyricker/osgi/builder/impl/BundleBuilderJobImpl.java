@@ -61,11 +61,11 @@ public class BundleBuilderJobImpl implements BundleBuilderJob {
 			/*
 			 * resolve bundles
 			 */
-			BuildJob job;
+			BuildStep step;
 			for (BuildResource resource : buildRepository.getBuildResources()) {
 				resource.setState(BuildResource.State.Resolving);
-				job = new ResolveJob((BuildResource) resource, resolver.createResolver(repository, resource));
-				completionService.submit(job);
+				step = new ResolveStep((BuildResource) resource, resolver.createResolver(repository, resource));
+				completionService.submit(step);
 			}
 			/*
 			 * work bundles through other states
@@ -77,24 +77,24 @@ public class BundleBuilderJobImpl implements BundleBuilderJob {
 					// compile
 					if (resource.isReady()) {
 //						resource.setState(BuildResource.State.Compiling);
-						job = new CompileJob(resource, compiler.createCompiler(resource.getSource()));
-						completionService.submit(job);
+						step = new CompileStep(resource, compiler.createCompiler(resource.getSource()));
+						completionService.submit(step);
 					}
 					break;
 				case Compiled:
 					// package
 //					resource.setState(BuildResource.State.Packaging);
-					job = new PackageJob(resource, packager.createPackager(resource.getSource(),
+					step = new PackageStep(resource, packager.createPackager(resource.getSource(),
 							instructions.getOutputDirectory()));
-					completionService.submit(job);
+					completionService.submit(step);
 					break;
 				case Built:
 					// compile ready children
 					for (BuildResource child : resource.getChildren()) {
 						if (child.getState() == BuildResource.State.Resolved && child.isReady()) {
 //							child.setState(BuildResource.State.Compiling);
-							job = new CompileJob(child, compiler.createCompiler(child.getSource()));
-							completionService.submit(job);
+							step = new CompileStep(child, compiler.createCompiler(child.getSource()));
+							completionService.submit(step);
 						}
 					}
 					break;

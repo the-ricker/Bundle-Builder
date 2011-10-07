@@ -10,17 +10,19 @@ import com.jeffreyricker.osgi.resolver.ResolverJob;
 import com.jeffreyricker.osgi.resolver.Solution;
 
 /**
+ * Wraps the {@link ResolverJob} to do the work and set the state.
+ * 
  * @author Ricker
  * @date Apr 29, 2011
  * 
  */
-public class ResolveJob implements BuildJob {
+public class ResolveStep implements BuildStep {
 
 	private BuildResource resource;
 
 	private ResolverJob resolver;
 
-	public ResolveJob(BuildResource resource, ResolverJob resolver) {
+	public ResolveStep(BuildResource resource, ResolverJob resolver) {
 		this.resource = resource;
 		this.resolver = resolver;
 	}
