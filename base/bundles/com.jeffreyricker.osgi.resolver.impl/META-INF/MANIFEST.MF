@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: SAT4J Bundle Resolver
+Bundle-SymbolicName: com.jeffreyricker.osgi.resolver.sat4j
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: JEFFREYRICKER
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: com.jeffreyricker.osgi.resolver,
+ org.osgi.framework;version="1.6.0",
+ org.osgi.service.obr;version="1.0.0",
+ org.sat4j.pb;version="2.2.0",
+ org.sat4j.pb.tools;version="2.2.0",
+ org.sat4j.specs;version="2.2.0"
+Service-Component: META-INF/component.xml
+Export-Package: com.jeffreyricker.osgi.resolver.impl,
+ com.jeffreyricker.osgi.resolver.util
+Bundle-Description: SAT4J bundle resolver service implementation

@@ -2,11 +2,11 @@ package com.jeffreyricker.osgi.repository;
 
 import java.util.regex.Pattern;
 
+import org.osgi.framework.Filter;
+import org.osgi.framework.FrameworkUtil;
 import org.osgi.framework.InvalidSyntaxException;
 import org.osgi.service.obr.Capability;
 import org.osgi.service.obr.Requirement;
-
-import com.jeffreyricker.osgi.manifest.FilterImpl;
 
 public class SimpleRequirement implements Requirement {
 
@@ -20,7 +20,7 @@ public class SimpleRequirement implements Requirement {
 	private boolean m_extend = false;
 	private boolean m_multiple = false;
 	private boolean m_optional = false;
-	private FilterImpl m_filter = null;
+	private Filter m_filter = null;
 	private String m_comment = null;
 
 	public SimpleRequirement() {
@@ -54,7 +54,7 @@ public class SimpleRequirement implements Requirement {
 			String nf = REMOVE_LT.matcher(filter).replaceAll("(!($1>=$2))");
 			nf = REMOVE_GT.matcher(nf).replaceAll("(!($1<=$2))");
 			nf = REMOVE_NV.matcher(nf).replaceAll("");
-			m_filter = FilterImpl.newInstance(nf, true);
+			m_filter =  FrameworkUtil.createFilter(nf); 
 		} catch (InvalidSyntaxException e) {
 			IllegalArgumentException ex = new IllegalArgumentException();
 			ex.initCause(e);
@@ -65,7 +65,7 @@ public class SimpleRequirement implements Requirement {
 	@Override
 	public boolean isSatisfied(Capability capability) {
 		return m_name.equals(capability.getName())
-				&& m_filter.matchCase(capability.getProperties())
+				&& m_filter.matches(capability.getProperties())
 				&& (m_filter.toString().indexOf("(mandatory:<*") >= 0 || capability.getProperties().get("mandatory:") == null);
 	}
 
