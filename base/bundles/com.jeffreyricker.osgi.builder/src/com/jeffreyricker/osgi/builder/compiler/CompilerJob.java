@@ -10,9 +10,8 @@ import javax.tools.JavaFileObject;
  * The callable job that performs the work of compiling the classes.
  * 
  * @author ricker
- *
+ * 
  */
-public interface CompilerJob extends
-		Callable<List<Diagnostic<? extends JavaFileObject>>> {
+public interface CompilerJob extends Callable<List<Diagnostic<? extends JavaFileObject>>> {
 
 }
