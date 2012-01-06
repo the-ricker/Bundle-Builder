@@ -28,13 +28,25 @@ public class BundleBuilderImpl implements BundleBuilder {
 	public void setResolver(BundleResolver resolver) {
 		this.resolver = resolver;
 	}
+	
+	public void unsetResolver() {
+		this.resolver = null;
+	}
 
 	public void setCompiler(BundleCompiler compiler) {
 		this.compiler = compiler;
 	}
+	
+	public void unsetCompiler() {
+		this.compiler = null;
+	}
 
 	public void setPackager(BundlePackager packager) {
 		this.packager = packager;
+	}
+	
+	public void unsetPackager() {
+		this.packager = null;
 	}
 
 	public BundleResolver getResolver() {

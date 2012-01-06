@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="com.jeffreyricker.osgi.builder">
+   <implementation class="com.jeffreyricker.osgi.builder.impl.BundleBuilderImpl"/><reference bind="setResolver" cardinality="1..1" interface="com.jeffreyricker.osgi.resolver.BundleResolver" name="BundleResolver" policy="static" unbind="unsetResolver"/><reference bind="setCompiler" cardinality="1..1" interface="com.jeffreyricker.osgi.builder.compiler.BundleCompiler" name="BundleCompiler" policy="static" unbind="unsetCompiler"/>
+   <service>
+      <provide interface="com.jeffreyricker.osgi.builder.BundleBuilder"/>
+   </service>
+   <reference bind="setPackager" cardinality="1..1" interface="com.jeffreyricker.osgi.builder.packager.BundlePackager" name="BundlePackager" policy="static" unbind="unsetPackager"/>
+</scr:component>

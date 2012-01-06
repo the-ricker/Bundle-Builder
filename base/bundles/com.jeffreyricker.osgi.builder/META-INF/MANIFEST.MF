@@ -3,7 +3,6 @@ Bundle-ManifestVersion: 2
 Bundle-Name: OSGi Builder
 Bundle-SymbolicName: com.jeffreyricker.osgi.builder
 Bundle-Version: 1.0.0.qualifier
-Bundle-Activator: com.jeffreyricker.osgi.builder.lifecycle.Activator
 Bundle-Vendor: Jeffrey Ricker
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Import-Package: com.jeffreyricker.osgi.manifest,
@@ -12,11 +11,7 @@ Import-Package: com.jeffreyricker.osgi.manifest,
  org.osgi.framework;version="1.3.0",
  org.osgi.service.obr,
  org.osgi.util.tracker;version="1.4.0"
-Bundle-ActivationPolicy: lazy
 Export-Package: com.jeffreyricker.osgi.builder,
  com.jeffreyricker.osgi.builder.compiler,
- com.jeffreyricker.osgi.builder.compiler.util,
  com.jeffreyricker.osgi.builder.packager,
- com.jeffreyricker.osgi.builder.source,
- com.jeffreyricker.osgi.builder.source.util,
- com.jeffreyricker.osgi.builder.util
+ com.jeffreyricker.osgi.builder.source

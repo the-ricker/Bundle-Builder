@@ -1,0 +1,23 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Bundler Builder Implementation
+Bundle-SymbolicName: com.jeffreyricker.osgi.builder.impl
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: JEFFREYRICKER
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: com.jeffreyricker.osgi.builder,
+ com.jeffreyricker.osgi.builder.compiler,
+ com.jeffreyricker.osgi.builder.packager,
+ com.jeffreyricker.osgi.builder.source,
+ com.jeffreyricker.osgi.manifest,
+ com.jeffreyricker.osgi.repository,
+ com.jeffreyricker.osgi.resolver,
+ org.osgi.framework;version="1.6.0",
+ org.osgi.service.obr;version="1.0.0"
+Service-Component: META-INF/builder.xml, META-INF/eclipsesource.xml, META-INF/compiler.xml, META-INF/packager.xml
+Export-Package: com.jeffreyricker.osgi.builder.compiler.impl,
+ com.jeffreyricker.osgi.builder.compiler.util,
+ com.jeffreyricker.osgi.builder.impl,
+ com.jeffreyricker.osgi.builder.packager.impl,
+ com.jeffreyricker.osgi.builder.source.util,
+ com.jeffreyricker.osgi.builder.util
