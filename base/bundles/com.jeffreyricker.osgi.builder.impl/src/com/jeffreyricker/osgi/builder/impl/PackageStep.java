@@ -6,6 +6,7 @@ package com.jeffreyricker.osgi.builder.impl;
 import java.io.File;
 
 import com.jeffreyricker.osgi.builder.BuildResource;
+import com.jeffreyricker.osgi.builder.ResourceState;
 import com.jeffreyricker.osgi.builder.packager.PackagerJob;
 
 /**
@@ -27,14 +28,14 @@ public class PackageStep implements BuildStep {
 
 	@Override
 	public BuildResource call() throws Exception {
-		resource.setState(BuildResource.State.Packaging);
+		resource.setState(ResourceState.Packaging);
 		try {
 			File jar = packager.call();
 			resource.setFile(jar);
-			resource.setState(BuildResource.State.Built);
+			resource.setState(ResourceState.Built);
 		} catch (Exception e) {
 			e.printStackTrace();
-			resource.setState(BuildResource.State.FailedPackaging);
+			resource.setState(ResourceState.FailedPackaging);
 		}
 		return resource;
 	}

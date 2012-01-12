@@ -17,11 +17,8 @@ import org.osgi.service.obr.Resource;
  */
 public interface Solution {
 	
-	public enum State {
-		Unresolved, Resolving, Satisfied, Unsatisfied;
-	}
 
-	public State getState();
+	public SolutionState getState();
 	
 	public Resource getResource();
 	

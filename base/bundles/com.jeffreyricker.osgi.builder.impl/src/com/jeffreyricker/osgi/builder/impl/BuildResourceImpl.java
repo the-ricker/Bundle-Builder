@@ -12,6 +12,7 @@ import javax.tools.JavaFileObject;
 import org.osgi.service.obr.Repository;
 
 import com.jeffreyricker.osgi.builder.BuildResource;
+import com.jeffreyricker.osgi.builder.ResourceState;
 import com.jeffreyricker.osgi.builder.source.BundleSource;
 import com.jeffreyricker.osgi.repository.SimpleResource;
 
@@ -23,7 +24,7 @@ import com.jeffreyricker.osgi.repository.SimpleResource;
  */
 public class BuildResourceImpl extends SimpleResource implements BuildResource {
 
-	private State state;
+	private ResourceState state;
 	private BundleSource source;
 	private URL url;
 	private Set<BuildResource> parents;
@@ -35,7 +36,7 @@ public class BuildResourceImpl extends SimpleResource implements BuildResource {
 	public BuildResourceImpl(Repository repository, BundleSource source) {
 		super(repository, null);
 		this.source = source;
-		this.state = State.Unresolved;
+		this.state = ResourceState.Unresolved;
 		parents = new HashSet<BuildResource>();
 		children = new HashSet<BuildResource>();
 		jar = null;
@@ -44,11 +45,11 @@ public class BuildResourceImpl extends SimpleResource implements BuildResource {
 	}
 
 	@Override
-	public State getState() {
+	public ResourceState getState() {
 		return state;
 	}
 
-	public void setState(State state) {
+	public void setState(ResourceState state) {
 		System.out.println(getId() + " state change from " + this.state + " to " + state);
 		this.state = state;
 	}
@@ -109,7 +110,7 @@ public class BuildResourceImpl extends SimpleResource implements BuildResource {
 
 	public boolean isReady() {
 		for (BuildResource parent : parents) {
-			if (parent.getState() != BuildResource.State.Built) {
+			if (parent.getState() != ResourceState.Built) {
 				return false;
 			}
 		}

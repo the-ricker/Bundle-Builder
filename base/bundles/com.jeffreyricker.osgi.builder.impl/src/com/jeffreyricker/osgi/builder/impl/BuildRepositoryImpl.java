@@ -13,6 +13,7 @@ import org.osgi.service.obr.Resource;
 
 import com.jeffreyricker.osgi.builder.BuildInstructions;
 import com.jeffreyricker.osgi.builder.BuildResource;
+import com.jeffreyricker.osgi.builder.ResourceState;
 import com.jeffreyricker.osgi.builder.source.BundleSource;
 import com.jeffreyricker.osgi.manifest.ManifestUtil;
 import com.jeffreyricker.osgi.repository.ResourceLoader;
@@ -42,7 +43,7 @@ public class BuildRepositoryImpl extends SimpleRepository implements BuildReposi
 	private void populate(BuildInstructions instructions) throws IOException {
 		for (BundleSource source : instructions.getBundleSources()) {
 			BuildResourceImpl resource = new BuildResourceImpl(this, source);
-			resource.setState(BuildResource.State.Unresolved);
+			resource.setState(ResourceState.Unresolved);
 			Manifest manifest = source.getManifest();
 			ManifestUtil.qualifyVersion(manifest, instructions.getVersionQualifier());
 			ResourceLoader.populate(resource, manifest);

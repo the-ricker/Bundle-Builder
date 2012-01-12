@@ -12,6 +12,7 @@ import org.osgi.service.obr.Repository;
 import org.osgi.service.obr.Resource;
 
 import com.jeffreyricker.osgi.resolver.Solution;
+import com.jeffreyricker.osgi.resolver.SolutionState;
 
 /**
  * @author Ricker
@@ -20,7 +21,7 @@ import com.jeffreyricker.osgi.resolver.Solution;
  */
 public class SolutionImpl implements Solution {
 
-	private State state;
+	private SolutionState state;
 
 	private Resource resource;
 
@@ -33,17 +34,17 @@ public class SolutionImpl implements Solution {
 	public SolutionImpl(Repository repository, Resource resource) {
 		this.repository = repository;
 		this.resource = resource;
-		state = State.Unresolved;
+		state = SolutionState.Unresolved;
 		dependencies = new HashSet<Resource>();
 		reasons = new ArrayList<String>();
 	}
 
 	@Override
-	public State getState() {
+	public SolutionState getState() {
 		return state;
 	}
 
-	public void setState(State state) {
+	public void setState(SolutionState state) {
 		this.state = state;
 	}
 

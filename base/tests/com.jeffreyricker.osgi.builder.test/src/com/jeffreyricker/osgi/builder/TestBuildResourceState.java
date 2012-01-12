@@ -8,48 +8,48 @@ public class TestBuildResourceState {
 
 	@Test
 	public void testHasWork() {
-		assertTrue(BuildResource.State.Unresolved.hasWork());
-		assertTrue(BuildResource.State.Resolving.hasWork());
-		assertFalse(BuildResource.State.FailedResolve.hasWork());
-		assertTrue(BuildResource.State.Resolved.hasWork());
-//		assertTrue(BuildResource.State.Ready.hasWork());
-		assertTrue(BuildResource.State.Compiling.hasWork());
-		assertFalse(BuildResource.State.FailedCompile.hasWork());
-		assertTrue(BuildResource.State.Compiled.hasWork());
-		assertFalse(BuildResource.State.Packaging.hasWork());
-		assertFalse(BuildResource.State.FailedPackaging.hasWork());
-		assertFalse(BuildResource.State.Built.hasWork());
+		assertTrue(ResourceState.Unresolved.hasWork());
+		assertTrue(ResourceState.Resolving.hasWork());
+		assertFalse(ResourceState.FailedResolve.hasWork());
+		assertTrue(ResourceState.Resolved.hasWork());
+//		assertTrue(ResourceState.Ready.hasWork());
+		assertTrue(ResourceState.Compiling.hasWork());
+		assertFalse(ResourceState.FailedCompile.hasWork());
+		assertTrue(ResourceState.Compiled.hasWork());
+		assertFalse(ResourceState.Packaging.hasWork());
+		assertFalse(ResourceState.FailedPackaging.hasWork());
+		assertFalse(ResourceState.Built.hasWork());
 	}
 	
 	@Test
 	public void testIsWorking() {
-		assertTrue(BuildResource.State.Unresolved.isWorking());
-		assertTrue(BuildResource.State.Resolving.isWorking());
-		assertFalse(BuildResource.State.FailedResolve.isWorking());
-		assertTrue(BuildResource.State.Resolved.isWorking());
-//		assertTrue(BuildResource.State.Ready.isWorking());
-		assertTrue(BuildResource.State.Compiling.isWorking());
-		assertFalse(BuildResource.State.FailedCompile.isWorking());
-		assertTrue(BuildResource.State.Compiled.isWorking());
-		assertTrue(BuildResource.State.Packaging.isWorking());
-		assertFalse(BuildResource.State.FailedPackaging.isWorking());
-		assertFalse(BuildResource.State.Built.isWorking());
+		assertTrue(ResourceState.Unresolved.isWorking());
+		assertTrue(ResourceState.Resolving.isWorking());
+		assertFalse(ResourceState.FailedResolve.isWorking());
+		assertTrue(ResourceState.Resolved.isWorking());
+//		assertTrue(ResourceState.Ready.isWorking());
+		assertTrue(ResourceState.Compiling.isWorking());
+		assertFalse(ResourceState.FailedCompile.isWorking());
+		assertTrue(ResourceState.Compiled.isWorking());
+		assertTrue(ResourceState.Packaging.isWorking());
+		assertFalse(ResourceState.FailedPackaging.isWorking());
+		assertFalse(ResourceState.Built.isWorking());
 	}
 
 	
 	@Test
 	public void testIsFailed() {
-		assertFalse(BuildResource.State.Unresolved.isFailed());
-		assertFalse(BuildResource.State.Resolving.isFailed());
-		assertTrue(BuildResource.State.FailedResolve.isFailed());
-		assertFalse(BuildResource.State.Resolved.isFailed());
-//		assertFalse(BuildResource.State.Ready.isFailed());
-		assertFalse(BuildResource.State.Compiling.isFailed());
-		assertTrue(BuildResource.State.FailedCompile.isFailed());
-		assertFalse(BuildResource.State.Compiled.isFailed());
-		assertFalse(BuildResource.State.Packaging.isFailed());
-		assertTrue(BuildResource.State.FailedPackaging.isFailed());
-		assertFalse(BuildResource.State.Built.isFailed());
+		assertFalse(ResourceState.Unresolved.isFailed());
+		assertFalse(ResourceState.Resolving.isFailed());
+		assertTrue(ResourceState.FailedResolve.isFailed());
+		assertFalse(ResourceState.Resolved.isFailed());
+//		assertFalse(ResourceState.Ready.isFailed());
+		assertFalse(ResourceState.Compiling.isFailed());
+		assertTrue(ResourceState.FailedCompile.isFailed());
+		assertFalse(ResourceState.Compiled.isFailed());
+		assertFalse(ResourceState.Packaging.isFailed());
+		assertTrue(ResourceState.FailedPackaging.isFailed());
+		assertFalse(ResourceState.Built.isFailed());
 	}
 
 

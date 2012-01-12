@@ -10,6 +10,7 @@ import java.util.concurrent.ExecutorCompletionService;
 import com.jeffreyricker.osgi.builder.BuildInstructions;
 import com.jeffreyricker.osgi.builder.BuildResource;
 import com.jeffreyricker.osgi.builder.BundleBuilderJob;
+import com.jeffreyricker.osgi.builder.ResourceState;
 import com.jeffreyricker.osgi.builder.compiler.BundleCompiler;
 import com.jeffreyricker.osgi.builder.packager.BundlePackager;
 import com.jeffreyricker.osgi.repository.SimpleRepositoryGroup;
@@ -63,7 +64,7 @@ public class BundleBuilderJobImpl implements BundleBuilderJob {
 			 */
 			BuildStep step;
 			for (BuildResource resource : buildRepository.getBuildResources()) {
-				resource.setState(BuildResource.State.Resolving);
+				resource.setState(ResourceState.Resolving);
 				step = new ResolveStep((BuildResource) resource, resolver.createResolver(repository, resource));
 				completionService.submit(step);
 			}
@@ -91,7 +92,7 @@ public class BundleBuilderJobImpl implements BundleBuilderJob {
 				case Built:
 					// compile ready children
 					for (BuildResource child : resource.getChildren()) {
-						if (child.getState() == BuildResource.State.Resolved && child.isReady()) {
+						if (child.getState() == ResourceState.Resolved && child.isReady()) {
 //							child.setState(BuildResource.State.Compiling);
 							step = new CompileStep(child, compiler.createCompiler(child.getSource()));
 							completionService.submit(step);

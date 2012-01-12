@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: SAT4J Resolver Test
+Bundle-SymbolicName: com.jeffreyricker.osgi.resolver.sat4j.test
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: JEFFREYRICKER
+Fragment-Host: com.jeffreyricker.osgi.resolver.sat4j;bundle-version="1.0.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: org.junit;bundle-version="4.8.2"
+Import-Package: com.jeffreyricker.osgi.repository,
+ org.easymock;version="2.5.2"

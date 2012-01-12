@@ -6,8 +6,10 @@ package com.jeffreyricker.osgi.builder.impl;
 import org.osgi.service.obr.Resource;
 
 import com.jeffreyricker.osgi.builder.BuildResource;
+import com.jeffreyricker.osgi.builder.ResourceState;
 import com.jeffreyricker.osgi.resolver.ResolverJob;
 import com.jeffreyricker.osgi.resolver.Solution;
+import com.jeffreyricker.osgi.resolver.SolutionState;
 
 /**
  * Wraps the {@link ResolverJob} to do the work and set the state.
@@ -30,8 +32,8 @@ public class ResolveStep implements BuildStep {
 	@Override
 	public BuildResource call() throws Exception {
 		Solution solution = resolver.call();
-		if (solution == null || solution.getState() != Solution.State.Satisfied) {
-			resource.setState(BuildResource.State.FailedResolve);
+		if (solution == null || solution.getState() != SolutionState.Satisfied) {
+			resource.setState(ResourceState.FailedResolve);
 		} else {
 			log(solution);
 			resource.getSource().setDependencies(solution.getDependencies());
@@ -42,7 +44,7 @@ public class ResolveStep implements BuildStep {
 					br.getChildren().add(resource);
 				}
 			}
-			resource.setState(BuildResource.State.Resolved);
+			resource.setState(ResourceState.Resolved);
 		}
 		return resource;
 	}

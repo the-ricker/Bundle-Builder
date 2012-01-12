@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Build Implementation Test
+Bundle-SymbolicName: com.jeffreyricker.osgi.builder.impl.test
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: JEFFREYRICKER
+Fragment-Host: com.jeffreyricker.osgi.builder.impl
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: org.junit;bundle-version="4.8.2",
+ com.springsource.org.easymock;bundle-version="2.5.2"
+Import-Package: com.jeffreyricker.osgi.resolver.impl

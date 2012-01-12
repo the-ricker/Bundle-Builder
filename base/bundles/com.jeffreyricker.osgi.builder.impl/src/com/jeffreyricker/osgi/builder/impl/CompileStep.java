@@ -6,6 +6,7 @@ import javax.tools.Diagnostic;
 import javax.tools.JavaFileObject;
 
 import com.jeffreyricker.osgi.builder.BuildResource;
+import com.jeffreyricker.osgi.builder.ResourceState;
 import com.jeffreyricker.osgi.builder.compiler.CompilerJob;
 
 /**
@@ -26,15 +27,15 @@ public class CompileStep implements BuildStep {
 
 	@Override
 	public BuildResource call() throws Exception {
-		resource.setState(BuildResource.State.Compiling);
+		resource.setState(ResourceState.Compiling);
 		try {
 			List<Diagnostic<? extends JavaFileObject>> results = compiler.call();
 			resource.setCompilerResults(results);
 			// TODO do we need to look at the results for failure?
-			resource.setState(BuildResource.State.Compiled);
+			resource.setState(ResourceState.Compiled);
 		} catch (Exception e) {
 			e.printStackTrace();
-			resource.setState(BuildResource.State.FailedCompile);
+			resource.setState(ResourceState.FailedCompile);
 		}
 		return resource;
 	}

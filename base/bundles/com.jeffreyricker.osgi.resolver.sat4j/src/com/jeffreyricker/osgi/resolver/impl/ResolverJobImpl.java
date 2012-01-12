@@ -22,6 +22,7 @@ import org.sat4j.specs.IVec;
 
 import com.jeffreyricker.osgi.resolver.ResolverJob;
 import com.jeffreyricker.osgi.resolver.Solution;
+import com.jeffreyricker.osgi.resolver.SolutionState;
 import com.jeffreyricker.osgi.resolver.util.ResourceSorter;
 import com.jeffreyricker.osgi.resolver.util.Slicer;
 
@@ -49,7 +50,7 @@ public class ResolverJobImpl implements ResolverJob {
 	@Override
 	public Solution call() throws Exception {
 		SolutionImpl solution = new SolutionImpl(repository, resource);
-		solution.setState(Solution.State.Resolving);
+		solution.setState(SolutionState.Resolving);
 		IPBSolver solver = SolverFactory
 				.newMiniLearningOPBClauseCardConstrMaxSpecificOrderIncrementalReductionToClause();
 		DependencyHelper<Resource, String> helper = new DependencyHelper<Resource, String>(solver, true);
@@ -76,12 +77,12 @@ public class ResolverJobImpl implements ResolverJob {
 				while (i.hasNext()) {
 					solution.addDependency(i.next());
 				}
-				solution.setState(Solution.State.Satisfied);
+				solution.setState(SolutionState.Satisfied);
 			} else {
-				solution.setState(Solution.State.Unsatisfied);
+				solution.setState(SolutionState.Unsatisfied);
 			}
 		} catch (Exception e) {
-			solution.setState(Solution.State.Unsatisfied);
+			solution.setState(SolutionState.Unsatisfied);
 		}
 		return solution;
 	}
